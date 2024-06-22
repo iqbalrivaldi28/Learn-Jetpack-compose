@@ -1,10 +1,9 @@
-package com.example.learn_jetpack_compose
+package com.example.learn_jetpack_compose.basic_layout
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -14,37 +13,38 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.learn_jetpack_compose.ui.theme.LearnjetpackcomposeTheme
 
-class MainActivity : ComponentActivity() {
+class ColumnLayoutActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             LearnjetpackcomposeTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Jetpack Compose")
+                    UserProfile()
                 }
             }
         }
     }
 }
 
+
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun UserProfile() {
+    Column {
+        Text(text = "M. Iqbal Rivaldi")
+        Text(text = "Jr. Android Developer")
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+private fun UserProfilePrev() {
     LearnjetpackcomposeTheme {
-        Greeting("Jetpack Compose")
+        UserProfile()
     }
+
 }
 
 
