@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ExpandLess
 import androidx.compose.material.icons.outlined.ExpandMore
@@ -81,9 +82,9 @@ private fun HelloJetpackComposeAppPrev() {
 @Composable
 fun GreetingList(names: List<String>) {
     if (names.isNotEmpty()){
-        Column {
-            for (name in names){
-                Greeting(name)
+        LazyColumn {
+            items(names.size) { index ->
+                Greeting(names[index])
             }
         }
     } else {
