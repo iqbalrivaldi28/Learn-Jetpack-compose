@@ -44,7 +44,7 @@ class ModifierActivity: ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    CardDesign(name = "Ibang", desc = "Jr. Android Developer")
                 }
             }
         }
