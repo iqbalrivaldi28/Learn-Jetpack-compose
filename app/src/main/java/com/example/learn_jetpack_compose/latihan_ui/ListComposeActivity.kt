@@ -7,6 +7,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.outlined.ExpandLess
 import androidx.compose.material.icons.outlined.ExpandMore
 import androidx.compose.material3.Card
@@ -49,7 +51,10 @@ private val sampleName = listOf(
     "Lusi",
     "Helmawan",
     "Sulthan",
-    "Raisa"
+    "Raisa",
+    "Rearista",
+    "Natasha",
+    "Brisya"
 )
 class ListComposeActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,7 +96,9 @@ fun GreetingList(names: List<String>) {
             }
         }
     } else {
-        Text(text = "No people to Greet ")
+        Box(contentAlignment = Alignment.Center) {
+            Text(text = "No people to Greet ")
+        }
     }
 }
 
@@ -109,6 +116,7 @@ fun Greeting(name: String) {
             stiffness = Spring.StiffnessLow
         )
     )
+
     Card (
         shape = MaterialTheme.shapes.medium,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp),
@@ -143,7 +151,7 @@ fun Greeting(name: String) {
             }
             IconButton(onClick = { isExpanded = !isExpanded }) {
                 Icon(
-                    imageVector = if (isExpanded) Icons.Outlined.ExpandLess else Icons.Outlined.ExpandMore,
+                    imageVector = if (isExpanded) Icons.Filled.ExpandLess else Icons.Outlined.ExpandMore,
                     contentDescription = if (isExpanded) "Show less" else "Show more"
                 )
             }
