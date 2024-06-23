@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -43,25 +45,33 @@ class CardComposeActivity: ComponentActivity() {
 
 @Composable
 fun HelloCompose(name: String) {
-    Row (
-        modifier = Modifier.padding(8.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Image(
-            painter = painterResource(R.drawable.jetpack_compose),
-            contentDescription = "Logo Jetpack Compose",
-            modifier = Modifier.size(80.dp)
+    Card (
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer
         )
-        Spacer(modifier = Modifier.width(8.dp))
-        Column {
-            Text(
-                text = "Hello $name",
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold
+    ) {
+        Row (
+            modifier = Modifier.padding(8.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Image(
+                painter = painterResource(R.drawable.jetpack_compose),
+                contentDescription = "Logo Jetpack Compose",
+                modifier = Modifier.size(80.dp)
             )
-            Text(
-                text = "Welcome to Jetpack Compose!"
-            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Column {
+                Text(
+                    text = "Hello $name",
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    text = "Welcome to Jetpack Compose!"
+                )
+            }
         }
     }
 }
