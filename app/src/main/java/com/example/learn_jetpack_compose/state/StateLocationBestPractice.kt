@@ -28,7 +28,7 @@ fun MyScreen(modifier: Modifier = Modifier) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         MySwitch(
-            initialChecked = checked,
+            checked = checked,
             onCheckedChanged = {checked = it}
         )
         Text(
@@ -44,19 +44,15 @@ fun MyScreen(modifier: Modifier = Modifier) {
 
 @Composable
 fun MySwitch(
-    initialChecked: Boolean,
+    checked: Boolean,
     onCheckedChanged: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
 
-    var checked by remember {
-        mutableStateOf(initialChecked)
-    }
 
     Switch(
         checked = checked,
         onCheckedChange = {
-            checked = it
             onCheckedChanged(it)
         }
     )
